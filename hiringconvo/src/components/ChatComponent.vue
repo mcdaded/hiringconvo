@@ -8,6 +8,7 @@
         stamp="7 minutes ago"
         sent
         bg-color="amber-7"
+        :key="1"
       />
       <q-chat-message
         name="Jane"
@@ -16,6 +17,7 @@
         stamp="4 minutes ago"
         text-color="white"
         bg-color="primary"
+        :key="2"
       />
     </div>
   </div>
