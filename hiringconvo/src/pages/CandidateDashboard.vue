@@ -1,5 +1,11 @@
 <template>
   <q-page padding>
+    <div class="q-pa-md q-gutter-sm">
+      <q-breadcrumbs>
+        <q-breadcrumbs-el label="Home" to="/" />
+        <q-breadcrumbs-el label="Candidates" />
+      </q-breadcrumbs>
+    </div>
     <div class="q-pa-md">
       <div class="row">
         <div class="col-8">
