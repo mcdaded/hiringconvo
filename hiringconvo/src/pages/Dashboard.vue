@@ -3,16 +3,10 @@
     <h4>Open Roles</h4>
     <div class="q-pa-sm">
       <div class="row">
-        <div
-          v-for="(job, index) in jobs"
-          class="col-3"
-          :key="index"
-          transition="stagger"
-          stagger="100"
-        >
+        <div v-for="(job, index) in jobs" class="col-3" :key="index">
           <JobRole
             :title="job.title"
-            :loadDuration="10000"
+            :loadDuration="job.index"
             :route="job.route"
           />
         </div>
