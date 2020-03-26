@@ -1,35 +1,42 @@
 <template>
-  <div>
-    <q-card class="my-card">
+  <div class="q-pa-xs">
+    <q-card class="job-role">
       <!-- <img src="https://cdn.quasar.dev/img/mountains.jpg" /> -->
       <q-card-section>
         <div class="text-h6">John Doe Candidate</div>
         <div class="text-subtitle2">Marketing Analyst</div>
       </q-card-section>
-
       <q-card-section class="q-pt-none">
-        {{ lorem }}
+        {{ this.title }}
       </q-card-section>
+      <q-separator />
+      <q-card-actions align="right">
+        <q-btn flat :to="'/jobcandidates'">Applicants</q-btn>
+      </q-card-actions>
     </q-card>
   </div>
 </template>
 
 <script>
 export default {
-  name: "CandidateCard",
+  name: "JobRole",
+  props: {
+    title: {
+      required: true
+    },
+    route: {
+      required: true
+    }
+  },
   data() {
-    return {
-      lorem: "No data"
-    };
+    return {};
   }
 };
 </script>
 
 <style scoped>
-.my-card {
+.job-role {
   width: 100%;
-  max-width: 300px;
+  max-width: 350px;
 }
-/* Enter and leave animations can use different */
-/* durations and timing functions.              */
 </style>

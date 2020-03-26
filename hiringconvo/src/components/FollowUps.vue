@@ -1,28 +1,17 @@
 <template>
-  <div class="q-pa-sm q-gutter-sm">
-    <div class="column items-center">
-      <div class="col">
-        <h4>Follow Ups</h4>
+  <div class="q-pa-sm">
+    <div class="column">
+      <div class="col-12">
+        <h4 style="text-align: center;">Follow Ups</h4>
       </div>
-      <div class="col">
-        <transition
-          appear
-          enter-active-class="animated slideInRight slow"
-          leave-active-class="animated slideOutLeft"
-          mode="out-in"
+      <div class="col-5" v-for="followUp in followUps" :key="followUp.index">
+        <ComponentAnimator
+          :animationDuration="followUp.animationDuration"
+          :animationDelay="followUp.animationDelay"
+          animationName="fadeInRight"
         >
           <FollowUpCard />
-        </transition>
-      </div>
-      <div class="col q-pa-md">
-        <transition
-          appear
-          enter-active-class="animated slideInRight my-slow"
-          leave-active-class="animated slideOutLeft"
-          mode="out-in"
-        >
-          <FollowUpCard />
-        </transition>
+        </ComponentAnimator>
       </div>
     </div>
   </div>
@@ -30,20 +19,33 @@
 
 <script>
 import FollowUpCard from "components/FollowUpCard.vue";
+import ComponentAnimator from "components/ComponentAnimator.vue";
 
 export default {
   name: "FollowUps",
   data() {
-    return {};
+    return {
+      followUps: [
+        {
+          index: 1,
+          summary: "Questions about Culture",
+          requests: 54,
+          animationDuration: 0.7,
+          animationDelay: 0.1
+        },
+        {
+          index: 2,
+          summary: "Questions about tools for the job",
+          requests: 15,
+          animationDuration: 0.7,
+          animationDelay: 0.5
+        }
+      ]
+    };
   },
   components: {
-    FollowUpCard
+    FollowUpCard,
+    ComponentAnimator
   }
 };
 </script>
-
-<style scoped>
-.my-slow {
-  animation-duration: 1s;
-}
-</style>
